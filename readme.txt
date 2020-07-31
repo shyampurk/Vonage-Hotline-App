@@ -82,7 +82,7 @@ Run the app
 	[nodemon] watching extensions: js,mjs,json
 	[nodemon] starting `node server.js`
 
-2>	Run the client from ./Vonage-Hotline-App/client
+2>	Run the client from ./Vonage-Hotline-App/client   Note: Change the values of phone numbers in ./Vonage-Hotline-App/client/src/app/contacts.json to actual numbers you want
 	command:
 	ng serve
 	result:
@@ -102,6 +102,12 @@ Run the app
 	i ｢wdm｣: Compiled successfully.
 	i ｢wdm｣: Compiling...
 	
+
+
+Note: 	Currently calling from app to non-app numbers is tested. 
+	App to app call should work if the applicaion is hosted in a server which can be accessed by different devices. 
+	Use login as different users "John" and "Bob" from two differnt devices and test.
+
 Reference Links 
 -------------------
 https://developer.nexmo.com/sdk/stitch/javascript/index
@@ -111,5 +117,3 @@ https://developer.nexmo.com/concepts/guides/authentication
 https://developer.nexmo.com/use-cases/client-sdk-click-to-call
 https://developer.nexmo.com/use-cases/contact-center-client-sdk
 https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr
-
-	
