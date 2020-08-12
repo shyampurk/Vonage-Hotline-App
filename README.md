@@ -73,21 +73,52 @@ Once running you will see session status with two forwarding addressess containn
 
 To use the hotline app, it has to be registed with a app instance under your Vonage account. Create a new app with the help of Nexmo CLI as follows
 
-          nexmo app:create <APP_NAME> <NGROK_HTTP_URL>/webhooks/answer <NGROK_HTTP_URL>/webhooks/events --keyfile=private.key --type=voice
+          nexmo app:create VonageHotlineApp <NGROK_HTTP_URL>/webhooks/answer <NGROK_HTTP_URL>/webhooks/events --keyfile=private.key --type=voice
 
-<APP_NAME> can be any name as long as it is unique within your Account.
+          <NGROK_HTTP_URL> is the public URL that was assigned by Ngrok in the previous step.
 
-<NGROK_HTTP_URL> is the public URL that was assigned by Ngrok in the previous step.
+This command also creates a private key for the application that is stored in the file private.key
 
-### Step 6: Assign the virtual numebr to app
+### Step 6: Assign the virtual number to app
 
 To intiate a call from the hotline app, it has to be assiciated with a calling number. You can link the Vonage virtual number to your app as follows
 
           nexmo link:app <VIRTUAL_NUMBER> <APP_ID>
 
-<VIRTUAL_NUMBER> is the VOnage virtual number that you purchased from with your accoutn dashboard. The number should be without the leading '+' character. 
+          <VIRTUAL_NUMBER> is the VOnage virtual number that you purchased from with your accoutn dashboard. The number should be without the leading '+' character. 
 
-<APP_ID> is the Application id the new app that you created in the last step. You can find the id on your dashboard under "Your Applications" menu. 
+          <APP_ID> is the Application id the VonageHotlineApp that you created in the last step. You can find the id on your dashboard under "Your Applications" menu. 
 
+### Step 7: Create a user for the app
+
+Create a new user "john". This is used to identify the calling user who owns the app and represents the caller.
+
+          nexmo user:create name="john"
+          
+### Step 8: Create a JWT token for the user
+
+The JWT token will be used for authenticating the user. 
+
+You can create the token through this [web page](https://developer.nexmo.com/jwt). Open the page and enter the parameters as follows.
+
+          - Private key : Content fo the private key file generated in step 5
+          - Application ID : Application Id of the VonageHotline App
+          - Valid For : This is the expiry time of the token. Leave it as default
+          - Sub : This is the user "john" that you created in step 7. Enter the username without the quotes.
+          - ACL - This is the access control list for the application to access Vonage APIs. Enter the following JSON object as the value
+          
+          {
+            "paths": {
+              "/*/users/**": {},
+                "/*/conversations/**": {},
+                "/*/sessions/**": {},
+                "/*/devices/**": {},
+                "/*/image/**": {},
+                "/*/media/**": {},
+                "/*/applications/**": {},
+                "/*/push/**": {},
+                "/*/knocking/**": {}
+            }
+          }
 
 
