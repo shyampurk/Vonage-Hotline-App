@@ -12,7 +12,7 @@ To make use of this app, you must have
 
 2. Vonage phone number: Once you log into your account you can purchase a virtual number.
 
-3. Account balance: You must have some accoutn balance on your Vonage account. This is required for billing the calls
+3. Account balance: You must have some account balance on your Vonage account. You can purchase credits from dashbaord under the "Billing & Payments" submenu. This is required for billing the calls. 
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Change to the client subdirectory and install the dependencies by running the np
 
           npm install
 
-### Step 3: Install the client dependencies
+### Step 3: Install the server dependencies
 
 Change to the server subdirectory and install the dependencies by running the npm command
 
@@ -59,15 +59,15 @@ Change to the server subdirectory and install the dependencies by running the np
 
 After the execution fo this command, switch bacl to the root directory. 
 
-### Step 4: Run the Ngrok server
+### Step 4: Run the Ngrok server (Separate terminal)
 
 Open another terminal and run the Ngrok server to expose the localhost to the Internet.
 
           ./ngrok http 3000
 
-Make sure that the ngrok binary is in the system path. In case of Windows you may have to use the complete binary file name as ngrok.exe.
+Make sure that the ngrok binary is in the system path. In case of Windows, you may have to use the complete binary file name as ngrok.exe.
 
-Once running you will see session status with two forwarding addressess containning the ngrok.io domain name. This is the public ngrok URL assigned to you.
+Once running, you will see session status with two forwarding addressess containning the ngrok.io domain name. This is the public ngrok URL assigned to you.
 
 ### Step 5: Create a new Vonage app
 
@@ -81,7 +81,7 @@ This command also creates a private key for the application that is stored in th
 
 ### Step 6: Assign the virtual number to app
 
-To intiate a call from the hotline app, it has to be assiciated with a calling number. You can link the Vonage virtual number to your app as follows
+To intiate a call from the hotline app, it has to be associated with a calling number. You can link the Vonage virtual number to your app as follows
 
           nexmo link:app <VIRTUAL_NUMBER> <APP_ID>
 
@@ -121,7 +121,7 @@ You can create the token through this [web page](https://developer.nexmo.com/jwt
             }
           }
 
-The generated JWT token will be displayed on the right column under the heading "Encoded". 
+The generated JWT token will be displayed on the right column under the heading "Encoded". This token will be valid for 6 hours, after which you have to generate it again.
 
 ### Step 9: Create the environment file for server
 
@@ -138,5 +138,5 @@ Create a new file ".env" under the [server](/server) sub directory and add the c
 
 Open the [callee contact information file](client/src/app/contacts.json). 
 
-You will see five predefined callee names and a defaulnumber placeholder "1234" assigned to each fo them. Replace the default number for Bob with an actual PSTN numbers (without the '+' sign).  
+You will see five predefined callee names and a defaul number placeholder "1234" assigned to each fo them. Replace the default number for Bob with your mobile numbers (without the '+' sign). This will be used to test the app to mobile call.   
 
