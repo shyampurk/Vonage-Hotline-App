@@ -99,7 +99,7 @@ Create a new user "john". This is used to identify the calling user who owns the
 
 The JWT token will be used for authenticating the user. 
 
-You can create the token through this [web page](https://developer.nexmo.com/jwt). Open the page and enter the parameters as follows.
+You can create the token through this [web page](https://developer.nexmo.com/jwt). Open the page and enter the parameters in the left column as follows.
 
           - Private key : Content fo the private key file generated in step 5
           - Application ID : Application Id of the VonageHotline App
@@ -136,4 +136,7 @@ Create a new file ".env" under the [server](/server) sub directory and add the c
 
 ### Step 10: Update the callee numbers
 
+Open the [callee contact information file](client/src/app/contacts.json). 
+
+You will see five predefined callee names and a defaulnumber placeholder "1234" assigned to each fo them. Replace the default number for Bob with an actual PSTN numbers (without the '+' sign).  
 
