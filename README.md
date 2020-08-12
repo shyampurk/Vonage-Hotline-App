@@ -121,4 +121,19 @@ You can create the token through this [web page](https://developer.nexmo.com/jwt
             }
           }
 
+The generated JWT token will be displayed on the right column under the heading "Encoded". 
+
+### Step 9: Create the environment file for server
+
+Create a new file ".env" under the [server](/server) sub directory and add the contents as follows
+
+                    PORT=3000
+                    JWT_john=<JWT_TOKEN_JOHN>
+                    NEXMO_NUMBER=<YOUR_VIRTUAL_NUMBER>
+                    
+                    <JWT_TOKEN_JOHN> is the JWT token generated in the last step.
+                    <YOUR_VIRTUAL_NUMBER> is the virtual number without the leading '+' character.
+
+### Step 10: Update the callee numbers
+
 
