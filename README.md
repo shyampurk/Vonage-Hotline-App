@@ -140,3 +140,33 @@ Open the [callee contact information file](client/src/app/contacts.json).
 
 You will see five predefined callee names and a defaul number placeholder "1234" assigned to each fo them. Replace the default number for Bob with your mobile numbers (without the '+' sign). This will be used to test the app to mobile call.   
 
+## Run the app
+
+### Step 1: Run the server
+
+Open a new terminal and switch to the [server](/server) sub directory.
+
+Run the server
+
+          npm start
+          
+### Step 2: Run the client
+
+Open a new terminal and switch to the [client](/client) sub directory.
+
+Run the client 
+
+          ng serve
+
+This will compile the Angular application. It will take some time to compile and run a local server on http://localhost:4200.
+
+### Step 3: Launch the app
+
+*Note: This step requires the overriding of CORS handling at the browser side. On Chrome, you can use the "Moesif Orign & CORS Changer" extension and enable it while testing this app.*  
+
+Open a browser and launch the app at http://localhost:4200.
+
+Login as john and then you can see the hotline app UI with the buttons for initiatiing the direct calls with pre-defined callees. 
+
+Click on the button representing "Bob" and you should see the button color change from red to amber and then to green as the call initialization proceeds. Wait for a few seconds and you should get a call on the phone number that you configured for Bob.
+
