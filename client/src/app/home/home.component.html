@@ -2,9 +2,9 @@
 <div class="container mt-5" style="width:30%;height:700px;min-width: 300px;background-color: grey;">
     <div class="py-5 text-center">
       <p class="lead">Welcome {{userName}}</p>
-      <h2>Your hotline contacts are</h2>
-      <p *ngIf="callState=='idle'" class="lead">Click on button below make Call</p>
-      <p *ngIf="!(callState=='idle')" class="lead">Calling {{currentName}}...</p>
+      <h2>Your Hotline Contacts</h2>
+      <p *ngIf="callState=='idle' || callState=='completed'" class="lead">Click on the name to call</p>
+      <p *ngIf="!(callState=='idle' || callState=='completed')" class="lead">Calling {{currentName}}...</p>
       <div class="row my-5 justify-content-center">
         <div class="col-sm-4">
           <a class=" btn btn-danger btn-circle "   id="Bob" role="button" (click)="handleButtonClick('Bob')">Bob</a>
@@ -24,29 +24,19 @@
           <a class=" btn btn-danger btn-circle" id = "Tom" role="button" (click)="handleButtonClick('Tom')">Tom</a>
         </div><!-- /.col-lg-4 -->
         <div class="col-sm-4">
-          <a class=" btn btn-danger btn-circle " id = "x1" role="button">X</a>
+          <a class=" btn btn-danger btn-circle btn-disabled" id = "x1" role="button">X</a>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
       <div class="row my-5">
         <div class="col-sm-4">
-          <a class=" btn btn-danger btn-circle "  id="x2" role="button" >X</a>
+          <a class=" btn btn-danger btn-circle btn-disabled "  id="x2" role="button" >X</a>
         </div><!-- /.col-lg-4 -->
         <div class="col-sm-4">
-          <a class=" btn btn-danger btn-circle" id = "x3" role="button">X</a>
+          <a class=" btn btn-danger btn-circle btn-disabled" id = "x3" role="button">X</a>
         </div><!-- /.col-lg-4 -->
         <div class="col-sm-4">
-          <a class=" btn btn-danger btn-circle " id = "x4" role="button">X</a>
+          <a class=" btn btn-danger btn-circle btn-disabled" id = "x4" role="button">X</a>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-      <div class="row" *ngIf="incoming && !recieved">
-        <div class="col-sm-6">
-         <a class=" btn btn-success btn-circle"  role="button" (click)="recieved=true;">Accept</a>
-        </div>
-        <div class="col-sm-6">
-          <a class=" btn btn-danger btn-circle" role="button" (click)="rejected=true;recieved=true;">Reject</a>
-        </div>
-      </div>
-      <div class="row" *ngIf="recieved">
-        <a class=" btn btn-danger btn-circle" role="button" (click)="received=false;hangUp()">Hang Up</a>
-      </div>
+      
   </div>

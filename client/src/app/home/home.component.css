@@ -1,11 +1,19 @@
 .btn-circle { 
     width: 70px; 
     height: 70px; 
-    padding: 10px 16px; 
+    padding: 30% 10%; 
     border-radius: 35px; 
-    font-size: 12px; 
+    font-size: 15px; 
     text-align: center; 
     justify-content: center;
     color:white;
     font-weight: bold;
 } 
+
+.btn-disabled {
+    background-color: darkgray;
+    cursor: none;
+    border-color: darkgray;
+    color: slategray;
+    padding-top: 30%;
+}

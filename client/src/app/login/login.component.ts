@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
     console.log(this.userName);
     if(this.userName === "john"){
       console.log("valid user name: "+this.userName);
-    } else if(this.userName === 'Bob'){
-      console.log("valid url: "+this.userName);
+    // } else if(this.userName === 'Bob'){
+    //   console.log("valid url: "+this.userName);
     } else {
       console.log("invalid username");
+      alert("Username invalid")
       // return;
     }
 

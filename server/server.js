@@ -22,38 +22,22 @@ app.get('/auth/:userid', (req, res) => {
   console.log(`Authenticating ${req.params.userid}`)
   
   if ("john" === user_id) {
-    // console.log("JWT:"+process.env.JWT_john);
+  
     return res.json(process.env.JWT_john);
-  } else if ("Bob" === user_id){
-    // console.log("JWT:"+process.env.JWT_Bob);
-    return res.json(process.env.JWT_Bob);
+  
   }
 })
 
 app.get('/webhooks/answer', (req, res) => {
-  console.log("Answer:")
+  console.log("ANSWER:")
+
   console.log(req.query)
   let  toNumber = req.query.to;
+  
   console.log(toNumber);
   var ncco;
-  if (toNumber === process.env.NEXMO_NUMBER){
-    ncco = [
-        {
-            "action": "talk",
-            "text": "Thank you for calling Bob"
-        },
-        {
-            "action": "connect",
-            "endpoint": [
-                {
-                    "type": "app",
-                    "user": "Bob"
-                }
-            ]
-        }
-    ]
-  } else {
-    const text = "Thank you for calling "+toNumber+" Transferring your call now.";
+  
+  const text = "Transferring your call now.";
     ncco = [
       {
         "action": "talk",
@@ -67,14 +51,17 @@ app.get('/webhooks/answer', (req, res) => {
           "number": toNumber
         }]
       }]
-  }
+  
   res.json(ncco);
 });
 
 app.post('/webhooks/event', (req, res) => {
+  
   console.log("EVENT:")
+  
   console.log(req.body)
   res.status(200).end()
+
 });
 
 
