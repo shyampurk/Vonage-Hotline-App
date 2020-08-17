@@ -33,7 +33,7 @@ To make use of this app, you must have
          npm install -g nexmo-client
 
 
-## Setup
+## [Setup](#setup)
 
 Clone this repository and switch to the repository root folder.  
 
@@ -140,7 +140,7 @@ Open the [callee contact information file](client/src/app/contacts.json).
 
 You will see five predefined callee names and a defaul number placeholder "1234" assigned to each fo them. Replace the default number for Bob with your mobile numbers (without the '+' sign). This will be used to test the app to mobile call.   
 
-## Run the app
+## [Run the app](#run-the-app)
 
 ### Step 1: Run the server
 
