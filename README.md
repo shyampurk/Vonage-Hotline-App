@@ -14,7 +14,7 @@ To make use of this app, you must have
 
 3. Account balance: You must have some account balance on your Vonage account. You can purchase credits from dashbaord under the "Billing & Payments" submenu. This is required for billing the calls. 
 
-## Prerequisites
+## [Prerequisites](#prerequisites)
 
 1. Node.js and npm : Install Node.js and NPM from the [official website](https://nodejs.org/en/).
 
