@@ -166,7 +166,7 @@ This will compile the Angular application. It will take some time to compile and
 
 Open a browser and launch the app at http://localhost:4200.
 
-Login as john and then you can see the hotline app UI with name pad displayying buttons for initiatiing the direct calls with pre-defined callees. 
+Login as john and then you can see the hotline app UI with name pad displaying buttons for initiating direct calls with pre-defined callees. 
 
 Click on the button representing "Bob." You should see the button color change from red to amber and then to green as the call initialization proceeds. Wait for a few seconds and you should get a call on the phone number that you configured for Bob.
 
