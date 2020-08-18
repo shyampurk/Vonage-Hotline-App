@@ -170,3 +170,8 @@ Login as john and then you can see the hotline app UI with the buttons for initi
 
 Click on the button representing "Bob" and you should see the button color change from red to amber and then to green as the call initialization proceeds. Wait for a few seconds and you should get a call on the phone number that you configured for Bob.
 
+## Limitations
+
+1. This app supports only outgoing calls.
+
+2. The code does not handle SDK exceptions or other errors.
